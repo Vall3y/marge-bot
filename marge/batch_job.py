@@ -267,5 +267,5 @@ class BatchMergeJob(MergeJob):
                 raise
             except CannotMerge as err:
                 self.unassign_from_mr(merge_request)
-                merge_request.comment("I couldn't merge this branch: %s" % err.reason)
+                merge_request.comment("I couldn't merge this branch <%s>: %s" %(merge_request.author_id, err.reason))
                 raise
